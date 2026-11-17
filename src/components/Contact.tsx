@@ -1,78 +1,97 @@
-"use client";
-
-import { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { Copy, Check, ExternalLink, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, ArrowUp, Mail, Phone, Globe, Code2 } from "lucide-react";
 
 export default function Contact() {
   const { personalInfo } = portfolioData;
-  const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
+  const contactLinks = [
+    {
+      label: "Email",
+      value: personalInfo.email,
+      href: `mailto:${personalInfo.email}`,
+      icon: <Mail className="w-4 h-4 text-sky-400" />,
+    },
+    {
+      label: "Phone",
+      value: personalInfo.phone,
+      href: `tel:${personalInfo.phone.replace(/\s+/g, "")}`,
+      icon: <Phone className="w-4 h-4 text-sky-400" />,
+    },
+    {
+      label: "Live Platform",
+      value: "satsolo.com",
+      href: personalInfo.website,
+      icon: <Globe className="w-4 h-4 text-sky-400" />,
+    },
+    {
+      label: "GitHub",
+      value: "github.com/bach1310",
+      href: personalInfo.github,
+      icon: <Code2 className="w-4 h-4 text-sky-400" />,
+    },
+  ];
 
   return (
-    <footer id="contact" className="py-20 border-t border-slate-900 relative bg-slate-950">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-xs font-mono font-semibold tracking-widest text-emerald-400 uppercase mb-2">
-          // 04. Inquiries & Admissions
-        </h2>
-        <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-          Get in Touch
-        </h3>
-        <p className="text-slate-400 text-sm max-w-lg mx-auto mb-8 leading-relaxed">
-          I welcome conversations regarding college admissions (Fall 2027 intake), software engineering collaborations, or educational technology initiatives.
-        </p>
-
-        <div className="inline-flex items-center gap-3 p-2 pl-4 rounded-xl bg-slate-900 border border-slate-800 mb-6 max-w-md w-full justify-between">
-          <div className="flex items-center gap-2 overflow-hidden text-ellipsis">
-            <Mail className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span className="text-xs sm:text-sm font-mono text-slate-200 truncate">
-              {personalInfo.email}
-            </span>
+    <footer id="contact" className="py-20 bg-[#07090c] border-t border-[#1a1f2b]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="mb-12">
+          <div className="text-xs font-mono font-semibold tracking-widest text-sky-400 uppercase mb-2">
+            06 / Contact & Collaboration
           </div>
-
-          <button
-            onClick={handleCopyEmail}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-semibold transition-colors flex-shrink-0"
-            title="Copy email to clipboard"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5" />
-                <span>Copied!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3.5 h-3.5" />
-                <span>Copy</span>
-              </>
-            )}
-          </button>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight max-w-2xl">
+            Let&apos;s discuss computer science, AI research, or undergraduate admissions.
+          </h2>
+          <p className="text-sm text-slate-400 mt-2 max-w-xl">
+            Open for technical collaborations, educational AI initiatives, and Fall 2027 university admissions inquiries.
+          </p>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-6 mb-12 text-xs font-mono text-slate-400">
-          <div className="flex items-center gap-1.5">
-            <Phone className="w-3.5 h-3.5 text-emerald-400" />
-            <span>{personalInfo.phone}</span>
+        {/* Contact Links Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          {contactLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : "_self"}
+              rel="noopener noreferrer"
+              className="p-5 rounded-xl border border-[#1e2535] bg-[#11141c]/60 hover:bg-[#151a24] hover:border-sky-500/40 transition-all group flex flex-col justify-between"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="p-2 rounded-lg bg-[#181d28] border border-[#232a3b]">
+                  {link.icon}
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-400 transition-colors" />
+              </div>
+
+              <div>
+                <span className="text-[11px] font-mono uppercase text-slate-400 block mb-0.5">
+                  {link.label}
+                </span>
+                <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-sky-300 transition-colors truncate block">
+                  {link.value}
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-[#1a1f2b] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+          <div>
+            Based in {personalInfo.location} · Available worldwide
           </div>
+
           <a
-            href={personalInfo.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+            href="#top"
+            className="hover:text-white transition-colors flex items-center gap-1.5"
           >
-            <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
-            <span>satsolo.com</span>
+            <span>Back to top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
           </a>
         </div>
 
-        <div className="text-xs font-mono text-slate-600 pt-8 border-t border-slate-900">
-          © 2026 {personalInfo.name} • Le Quy Don Gifted • Class of 2027 • Da Nang, Vietnam
-        </div>
       </div>
     </footer>
   );

@@ -1,60 +1,62 @@
-import { portfolioData, HonorItem } from "@/data/portfolioData";
-import { Award, Users, Trophy } from "lucide-react";
+import { portfolioData, HonorAward } from "@/data/portfolioData";
+import { Award, CheckCircle2 } from "lucide-react";
 
 export default function Honors() {
-  const { honorsAndLeadership } = portfolioData;
-
-  const getCategoryIcon = (category: string) => {
-    if (category === "Leadership") return <Users className="w-5 h-5 text-emerald-400" />;
-    if (category === "Athletics") return <Trophy className="w-5 h-5 text-emerald-400" />;
-    return <Award className="w-5 h-5 text-emerald-400" />;
-  };
+  const { honors } = portfolioData;
 
   return (
-    <section id="honors" className="py-20 border-t border-slate-900 relative">
+    <section id="honors" className="py-20 border-b border-[#1a1f2b]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-xs font-mono font-semibold tracking-widest text-emerald-400 uppercase mb-2">
-            // 03. Leadership, Honors & Academics
+          <div className="text-xs font-mono font-semibold tracking-widest text-sky-400 uppercase mb-2">
+            01 / Academic honors & awards
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Distinctions, competitions, and verified honors.
           </h2>
-          <h3 className="text-3xl font-bold text-white tracking-tight">
-            Academic Track Record & Extracurriculars
-          </h3>
-          <p className="text-slate-400 text-sm mt-1">
-            Combining rigorous STEM fundamentals with software leadership and community initiatives in Da Nang.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {honorsAndLeadership.map((item: HonorItem, idx: number) => (
+        {/* List of Honors */}
+        <div className="space-y-4">
+          {honors.map((item: HonorAward) => (
             <div
-              key={idx}
-              className="p-6 rounded-xl border border-slate-800 bg-slate-900/40 flex flex-col justify-between hover:border-slate-700 transition-all"
+              key={item.id}
+              className="p-5 sm:p-6 rounded-xl border border-[#1e2535] bg-[#11141c]/60 hover:bg-[#151a24] hover:border-sky-500/30 transition-all flex flex-col md:flex-row md:items-start justify-between gap-4"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/50">
-                    {getCategoryIcon(item.category)}
-                  </div>
-                  {item.highlightNumber && (
-                    <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-full border border-emerald-500/30">
-                      {item.highlightNumber}
-                    </span>
-                  )}
+              <div className="space-y-1.5 max-w-3xl">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
+                  <span className="text-sky-400 font-semibold">{item.year}</span>
+                  <span>·</span>
+                  <span className="text-slate-300">{item.scope}</span>
                 </div>
 
-                <span className="text-[11px] font-mono text-slate-400 block mb-1">
-                  {item.organization} • {item.year}
-                </span>
-                <h4 className="text-base font-bold text-white mb-1.5">{item.title}</h4>
-                <div className="text-xs font-semibold text-emerald-300 mb-3 font-mono">
-                  {item.roleOrAward}
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  {item.title}
+                </h3>
+
+                <div className="text-xs font-mono text-slate-400">
+                  {item.subtitle}
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">{item.description}</p>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
+                  {item.description}
+                </p>
               </div>
+
+              {item.tag && (
+                <div className="flex-shrink-0 self-start md:self-center">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono font-semibold bg-sky-950/60 text-sky-300 border border-sky-500/30">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
+                    <span>{item.tag}</span>
+                  </span>
+                </div>
+              )}
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

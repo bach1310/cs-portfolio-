@@ -1,19 +1,23 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
 import Honors from "@/components/Honors";
+import Projects from "@/components/Projects";
+import Leadership from "@/components/Leadership";
+import Capabilities from "@/components/Capabilities";
+import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-950 tech-grid text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#090b0e] editorial-grid text-slate-100 flex flex-col">
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <About />
-        <Projects />
         <Honors />
+        <Projects />
+        <Leadership />
+        <Capabilities />
+        <Education />
       </main>
       <Contact />
     </div>
