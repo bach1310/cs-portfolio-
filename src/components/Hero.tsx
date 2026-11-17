@@ -68,14 +68,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: STUDENT PROFILE WITH PHOTO + HIGHLIGHTS */}
+          {/* Right Column: STUDENT PROFILE (100% IDENTICAL TO FRIEND'S SCREENSHOT) */}
           <div className="lg:col-span-5 space-y-5">
             
-            {/* Student Profile Card (Matching friend's exact structure) */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md transition-shadow">
+            {/* Student Profile Card */}
+            <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-3.5 shadow-xs">
               
-              {/* Photo Container - Cleanly sized and framed */}
-              <div className="w-full h-[270px] sm:h-[300px] rounded-xl overflow-hidden bg-slate-100 border border-slate-200/80 flex items-center justify-center">
+              {/* Photo with rounded corners */}
+              <div className="w-full aspect-[4/5] max-h-[320px] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center">
                 <img
                   src="/portrait.png"
                   alt={personalInfo.fullName}
@@ -83,29 +83,26 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Information immediately under the photo */}
-              <div className="pt-3.5 space-y-1.5 text-xs">
-                <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                  <span className="font-bold text-sm text-slate-950">{personalInfo.fullName}</span>
-                  <span className="text-[11px] font-mono text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 font-semibold">
-                    {personalInfo.standing}
-                  </span>
+              {/* School Section */}
+              <div className="pt-3 mt-3 border-t border-slate-200">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
+                  SCHOOL
                 </div>
-
-                <div className="text-slate-700 pt-1">
-                  <span className="font-mono text-slate-500 font-medium">School · </span>
-                  <span className="font-semibold text-slate-900">{personalInfo.school}</span>
-                </div>
-
-                <div className="text-slate-700">
-                  <span className="font-mono text-slate-500 font-medium">Direction · </span>
-                  <span className="font-semibold text-sky-700">Computer Science & AI Systems</span>
-                </div>
-
-                <div className="text-slate-500 font-mono text-[11px]">
-                  Location · Da Nang, Vietnam
+                <div className="text-sm font-semibold text-slate-900">
+                  Le Quy Don High School for the Gifted
                 </div>
               </div>
+
+              {/* Direction Section */}
+              <div className="pt-2.5 mt-2.5 border-t border-slate-200">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-semibold mb-0.5">
+                  DIRECTION
+                </div>
+                <div className="text-sm font-semibold text-slate-900">
+                  Computer Science
+                </div>
+              </div>
+
             </div>
 
             {/* Portfolio Highlights Grid */}
