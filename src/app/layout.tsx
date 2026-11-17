@@ -1,23 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { portfolioData } from "@/data/portfolioData";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  variable: "--font-fira-code",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: `${portfolioData.personalInfo.name} | Aspiring CS Major`,
-  description: `Portfolio of ${portfolioData.personalInfo.name}, Le Quy Don Gifted (Class of 2027) from Da Nang, Vietnam applying for Computer Science.`,
+  title: `${portfolioData.personalInfo.fullName} | Engineering & Computing`,
+  description: `Portfolio of ${portfolioData.personalInfo.fullName}, Le Quy Don High School for the Gifted (Class of 2027) from Da Nang, Vietnam.`,
 };
 
 export default function RootLayout({
@@ -26,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
-      <body className="font-sans antialiased bg-slate-950 text-slate-100 min-h-screen selection:bg-emerald-500/30 selection:text-emerald-300">
+    <html lang="en">
+      <body className="antialiased bg-[#090b0e] text-slate-100 min-h-screen selection:bg-sky-500/30 selection:text-sky-300">
         {children}
       </body>
     </html>

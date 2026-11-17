@@ -39,6 +39,7 @@ export interface CapabilityItem {
 
 export const portfolioData = {
   personalInfo: {
+    name: "Bach Pham",
     fullName: "Bach Pham",
     displayName: "Bach Pham",
     eyebrow: "Computer Science & AI Engineering Portfolio · Da Nang, Vietnam",
