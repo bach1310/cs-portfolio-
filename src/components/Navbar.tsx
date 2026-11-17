@@ -17,24 +17,24 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#090b0e]/90 border-b border-[#1a1f2b] transition-all">
+    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-white/85 border-b border-slate-200 transition-all">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
         {/* Brand Name */}
         <a
           href="#top"
-          className="text-sm font-semibold tracking-tight text-white hover:text-sky-400 transition-colors flex items-center gap-2"
+          className="text-sm font-semibold tracking-tight text-slate-900 hover:text-sky-600 transition-colors flex items-center gap-2"
         >
-          <span className="w-2 h-2 rounded-full bg-sky-400"></span>
+          <span className="w-2 h-2 rounded-full bg-sky-500"></span>
           <span>{portfolioData.personalInfo.displayName}</span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-400">
+        <nav className="hidden md:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-600">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-white transition-colors"
+              className="hover:text-slate-950 transition-colors font-medium"
             >
               {link.name}
             </a>
@@ -44,7 +44,7 @@ export default function Navbar() {
             href={portfolioData.personalInfo.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-3 py-1 rounded text-xs font-mono text-sky-400 border border-sky-500/30 hover:bg-sky-500/10 transition-colors"
+            className="inline-flex items-center gap-1 px-3 py-1 rounded text-xs font-mono font-semibold text-sky-700 bg-sky-50 border border-sky-200 hover:bg-sky-100 transition-colors"
           >
             <span>satsolo.com</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-400 hover:text-white"
+          className="md:hidden p-2 text-slate-600 hover:text-slate-950"
           aria-label="Toggle Menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -63,13 +63,13 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[#1a1f2b] bg-[#090b0e]/98 px-5 py-4 space-y-3 font-mono text-xs uppercase tracking-wider text-slate-300">
+        <div className="md:hidden border-b border-slate-200 bg-white/98 px-5 py-4 space-y-3 font-mono text-xs uppercase tracking-wider text-slate-700">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-1.5 hover:text-sky-400 transition-colors"
+              className="block py-1.5 hover:text-sky-600 transition-colors"
             >
               {link.name}
             </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="inline-flex items-center gap-1.5 py-2 text-sky-400"
+            className="inline-flex items-center gap-1.5 py-2 text-sky-700 font-semibold"
           >
             <span>satsolo.com</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

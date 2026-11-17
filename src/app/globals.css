@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -9,18 +9,18 @@ html {
 }
 
 body {
-  background-color: #090b0e;
-  color: #f1f5f9;
+  background-color: #ffffff;
+  color: #0f172a; /* slate-900 */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
 }
 
-/* Subtle architectural grid pattern */
+/* Subtle clean editorial grid pattern on pure white */
 .editorial-grid {
-  background-size: 48px 48px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
 }
 
 /* Custom scrollbar */
@@ -28,12 +28,12 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090b0e;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2533;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
 }
