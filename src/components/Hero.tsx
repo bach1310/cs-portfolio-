@@ -1,5 +1,5 @@
 import { portfolioData } from "@/data/portfolioData";
-import { ArrowDown, ArrowUpRight, GraduationCap, MapPin, User } from "lucide-react";
+import { ArrowDown, ArrowUpRight, GraduationCap, MapPin } from "lucide-react";
 
 export default function Hero() {
   const { personalInfo, heroHighlights } = portfolioData;
@@ -7,9 +7,9 @@ export default function Hero() {
   return (
     <section id="top" className="relative pt-16 pb-20 md:pt-24 md:pb-28 border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left Column: Title & Pitch */}
+          {/* Left Column: Title, Intro & Actions */}
           <div className="lg:col-span-7 space-y-6">
             <div className="text-xs font-mono tracking-wider text-slate-500 uppercase flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-sky-600" />
@@ -29,7 +29,7 @@ export default function Hero() {
             </p>
 
             {/* Quick Links Row */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <a
                 href="#honors"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-mono text-xs font-semibold transition-colors shadow-sm"
@@ -66,57 +66,45 @@ export default function Hero() {
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
+
+            {/* Academic & School Info Bar */}
+            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/80 text-xs text-slate-700 space-y-1.5 max-w-xl">
+              <div className="flex items-center gap-2 font-semibold text-slate-900">
+                <GraduationCap className="w-4 h-4 text-sky-600" />
+                <span>{personalInfo.school}</span>
+                <span className="text-slate-400 font-mono">·</span>
+                <span className="text-sky-700 font-mono">{personalInfo.standing}</span>
+              </div>
+              <div className="text-slate-600">
+                <span className="font-mono text-slate-500">Direction: </span>
+                <span className="font-medium text-slate-800">{personalInfo.focus}</span>
+                <span className="mx-2 text-slate-400">·</span>
+                <span className="font-mono text-slate-500">Based in: </span>
+                <span>{personalInfo.location}</span>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column: Student Profile (With Portrait Photo Slot) & Highlights */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Right Column: LARGE STANDALONE PORTRAIT PHOTO & HIGHLIGHTS */}
+          <div className="lg:col-span-5 space-y-5">
             
-            {/* Student Profile Card with Avatar/Portrait */}
-            <div className="p-5 rounded-xl border border-slate-200 bg-slate-50/90 shadow-sm space-y-4">
-              
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-sky-600" />
-                  <span className="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold">
-                    Student Profile
-                  </span>
-                </div>
-                <span className="text-[11px] font-mono text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded border border-sky-200 font-semibold">
-                  {personalInfo.standing}
-                </span>
+            {/* The Main Portrait Card (Right next to Bach Pham text) */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-3.5 shadow-sm hover:shadow-md transition-shadow">
+              <div className="relative aspect-[3/4] w-full max-h-[380px] rounded-xl overflow-hidden bg-slate-100 border border-slate-100">
+                <img
+                  src="/portrait.png"
+                  alt={personalInfo.fullName}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
 
-              {/* Portrait + Info Row */}
-              <div className="flex items-center gap-4">
-                {/* Portrait Slot */}
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-shrink-0 bg-slate-100 flex items-center justify-center">
-                  <img
-                    src="/avatar.jpg"
-                    alt={personalInfo.fullName}
-                    className="w-full h-full object-cover object-top"
-                  />
+              {/* Caption under photo */}
+              <div className="pt-3 px-1 flex items-center justify-between text-xs font-mono">
+                <div>
+                  <span className="font-bold text-slate-900 block">{personalInfo.fullName}</span>
+                  <span className="text-[11px] text-slate-500">Da Nang, Vietnam</span>
                 </div>
-
-                {/* Profile Details */}
-                <div className="space-y-1 text-xs">
-                  <div className="text-sm font-bold text-slate-950">
-                    {personalInfo.fullName}
-                  </div>
-                  <div className="text-slate-700 font-medium leading-tight">
-                    {personalInfo.school}
-                  </div>
-                  <div className="text-sky-700 font-mono text-[11px] font-semibold">
-                    {personalInfo.focus}
-                  </div>
-                  <div className="text-slate-500 font-mono text-[11px]">
-                    {personalInfo.location}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-mono">
-                <span>Da Nang, Vietnam</span>
-                <span className="inline-flex items-center gap-1 text-emerald-700 font-medium">
+                <span className="inline-flex items-center gap-1.5 text-xs text-sky-700 font-semibold bg-sky-50 px-2.5 py-1 rounded-md border border-sky-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                   Class of 2027
                 </span>
