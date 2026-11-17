@@ -75,11 +75,11 @@ export default function Hero() {
             <div className="rounded-xl border border-slate-200 bg-white p-3 sm:p-3.5 shadow-xs">
               
               {/* Photo with rounded corners */}
-              <div className="w-full aspect-[4/5] max-h-[320px] rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center">
+              <div className="w-full h-[280px] sm:h-[320px] rounded-lg overflow-hidden bg-white flex items-center justify-center p-1">
                 <img
                   src="/portrait.png"
                   alt={personalInfo.fullName}
-                  className="w-full h-full object-cover object-top"
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
 
