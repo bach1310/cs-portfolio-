@@ -1,5 +1,5 @@
 import { portfolioData } from "@/data/portfolioData";
-import { ArrowDown, ArrowUpRight, GraduationCap, MapPin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, GraduationCap, MapPin, User } from "lucide-react";
 
 export default function Hero() {
   const { personalInfo, heroHighlights } = portfolioData;
@@ -68,11 +68,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Student Profile & Highlight Strip */}
+          {/* Right Column: Student Profile (With Portrait Photo Slot) & Highlights */}
           <div className="lg:col-span-5 space-y-4">
-            {/* Student Profile Card */}
-            <div className="p-5 rounded-xl border border-slate-200 bg-slate-50/90 shadow-sm">
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-200">
+            
+            {/* Student Profile Card with Avatar/Portrait */}
+            <div className="p-5 rounded-xl border border-slate-200 bg-slate-50/90 shadow-sm space-y-4">
+              
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div className="flex items-center gap-2">
                   <GraduationCap className="w-4 h-4 text-sky-600" />
                   <span className="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold">
@@ -84,19 +86,50 @@ export default function Hero() {
                 </span>
               </div>
 
-              <div className="space-y-1.5 text-xs text-slate-700">
-                <div>
-                  <span className="text-slate-500 font-mono">School: </span>
-                  <span className="text-slate-900 font-semibold">{personalInfo.school}</span>
+              {/* Portrait + Info Row */}
+              <div className="flex items-center gap-4">
+                {/* Portrait Slot */}
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border-2 border-white shadow-sm flex-shrink-0 bg-gradient-to-br from-sky-100 to-slate-200 flex items-center justify-center group">
+                  {/* Real Photo Image (Drop avatar.jpg in public/ folder) */}
+                  <img
+                    src="/avatar.jpg"
+                    alt={personalInfo.fullName}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback gracefully if avatar.jpg doesn't exist yet
+                      (e.target as HTMLElement).style.opacity = "0";
+                    }}
+                  />
+                  {/* Sleek Fallback Placeholder Initials if no photo is added yet */}
+                  <div className="absolute inset-0 -z-0 flex flex-col items-center justify-center text-sky-700 font-mono">
+                    <User className="w-7 h-7 text-sky-600 mb-0.5" />
+                    <span className="text-[10px] font-bold tracking-wider">PHOTO</span>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-slate-500 font-mono">Focus: </span>
-                  <span className="text-sky-700 font-medium">{personalInfo.focus}</span>
+
+                {/* Profile Details */}
+                <div className="space-y-1 text-xs">
+                  <div className="text-sm font-bold text-slate-950">
+                    {personalInfo.fullName}
+                  </div>
+                  <div className="text-slate-700 font-medium leading-tight">
+                    {personalInfo.school}
+                  </div>
+                  <div className="text-sky-700 font-mono text-[11px] font-semibold">
+                    {personalInfo.focus}
+                  </div>
+                  <div className="text-slate-500 font-mono text-[11px]">
+                    {personalInfo.location}
+                  </div>
                 </div>
-                <div>
-                  <span className="text-slate-500 font-mono">Location: </span>
-                  <span>{personalInfo.location}</span>
-                </div>
+              </div>
+
+              <div className="pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                <span>Da Nang, Vietnam</span>
+                <span className="inline-flex items-center gap-1 text-emerald-700 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Class of 2027
+                </span>
               </div>
             </div>
 
