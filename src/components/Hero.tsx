@@ -89,22 +89,12 @@ export default function Hero() {
               {/* Portrait + Info Row */}
               <div className="flex items-center gap-4">
                 {/* Portrait Slot */}
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border-2 border-white shadow-sm flex-shrink-0 bg-gradient-to-br from-sky-100 to-slate-200 flex items-center justify-center group">
-                  {/* Real Photo Image (Drop avatar.jpg in public/ folder) */}
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-shrink-0 bg-slate-100 flex items-center justify-center">
                   <img
                     src="/avatar.jpg"
                     alt={personalInfo.fullName}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback gracefully if avatar.jpg doesn't exist yet
-                      (e.target as HTMLElement).style.opacity = "0";
-                    }}
+                    className="w-full h-full object-cover object-top"
                   />
-                  {/* Sleek Fallback Placeholder Initials if no photo is added yet */}
-                  <div className="absolute inset-0 -z-0 flex flex-col items-center justify-center text-sky-700 font-mono">
-                    <User className="w-7 h-7 text-sky-600 mb-0.5" />
-                    <span className="text-[10px] font-bold tracking-wider">PHOTO</span>
-                  </div>
                 </div>
 
                 {/* Profile Details */}
