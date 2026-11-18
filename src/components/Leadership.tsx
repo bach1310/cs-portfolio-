@@ -58,6 +58,22 @@ export default function Leadership() {
                         Scope: {item.scope}
                       </div>
 
+                      {item.evidence && item.evidence.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono text-slate-500">
+                          {item.evidence.map((src, i) => (
+                            <a
+                              key={src}
+                              href={src}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
+                            >
+                              {item.evidence!.length > 1 ? `Evidence ${i + 1} ↗` : "Evidence ↗"}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+
                       <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-1">
                         {item.description}
                       </p>

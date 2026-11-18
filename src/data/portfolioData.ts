@@ -28,6 +28,8 @@ export interface LeadershipItem {
   scope: string;
   description: string;
   metrics: string;
+  /** Real evidence file paths (optional). */
+  evidence?: string[];
 }
 
 export interface CapabilityItem {
@@ -202,6 +204,7 @@ export const portfolioData = {
           description:
             "Lead software project planning, code reviews, and delivery of 3 club software projects per semester. Designed and led hands-on 'Vibe Coding' workshops for 20+ participants on AI-assisted application development, resulting in 3 junior members launching independent AI tools.",
           metrics: "15 Engineers Led · 20+ Workshop Trainees",
+          evidence: ["/evidence/ycc-team.jpg", "/evidence/ycc-robot-demo.jpg"],
         },
       ],
     },
@@ -232,7 +235,12 @@ export const portfolioData = {
         },
       ],
     },
-  ],
+  ] as {
+    groupTitle: string;
+    categoryName: string;
+    subtext: string;
+    items: (LeadershipItem & { evidence?: string[] })[];
+  }[],
 
   // 04 / Capabilities, connected to evidence
   capabilities: [
