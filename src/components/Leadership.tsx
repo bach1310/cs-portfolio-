@@ -41,8 +41,9 @@ export default function Leadership() {
                 {group.items.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col md:flex-row md:items-start justify-between gap-6 group"
+                    className="p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col gap-4 group"
                   >
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
                     <div className="space-y-2 max-w-3xl">
                       <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
                         <span className="text-sky-700 font-bold bg-sky-50 px-2 py-0.5 rounded border border-sky-200/80">{item.year}</span>
@@ -58,22 +59,6 @@ export default function Leadership() {
                         Scope: {item.scope}
                       </div>
 
-                      {item.evidence && item.evidence.length > 0 && (
-                        <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono text-slate-500">
-                          {item.evidence.map((src, i) => (
-                            <a
-                              key={src}
-                              href={src}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
-                            >
-                              {item.evidence!.length > 1 ? `Evidence ${i + 1} ↗` : "Evidence ↗"}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-
                       <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-1">
                         {item.description}
                       </p>
@@ -84,6 +69,23 @@ export default function Leadership() {
                         {item.metrics}
                       </div>
                     </div>
+                    </div>
+
+                    {item.evidence && item.evidence.length > 0 && (
+                      <div className="flex flex-wrap justify-end gap-2">
+                        {item.evidence.map((src, i) => (
+                          <a
+                            key={src}
+                            href={src}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-red-600 bg-red-50 border border-red-200 hover:bg-red-100 hover:border-red-300 hover:text-red-700 transition-colors"
+                          >
+                            {item.evidence!.length > 1 ? `Evidence ${i + 1} ↗` : "Evidence ↗"}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

@@ -23,8 +23,9 @@ export default function Honors() {
           {honors.map((item: HonorAward) => (
             <div
               key={item.id}
-              className="p-5 sm:p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col md:flex-row md:items-start justify-between gap-4 group"
+              className="p-5 sm:p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col gap-4 group"
             >
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
               <div className="space-y-2 max-w-3xl">
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
                   <span className="text-sky-700 font-bold bg-sky-50 px-2 py-0.5 rounded border border-sky-200/80">{item.year}</span>
@@ -39,16 +40,6 @@ export default function Honors() {
                 <div className="text-xs font-mono text-slate-500">
                   {item.subtitle}
                 </div>
-                {item.evidence && (
-                  <a
-                    href={item.evidence}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
-                  >
-                    Evidence ↗
-                  </a>
-                )}
 
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-1">
                   {item.description}
@@ -61,6 +52,20 @@ export default function Honors() {
                     <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
                     <span>{item.tag}</span>
                   </span>
+                </div>
+              )}
+              </div>
+
+              {item.evidence && (
+                <div className="flex justify-end">
+                  <a
+                    href={item.evidence}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-red-600 bg-red-50 border border-red-200 hover:bg-red-100 hover:border-red-300 hover:text-red-700 transition-colors"
+                  >
+                    Evidence ↗
+                  </a>
                 </div>
               )}
             </div>

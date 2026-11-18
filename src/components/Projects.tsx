@@ -73,14 +73,16 @@ export default function Projects() {
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {flagshipProject.dossier.product}
                 </p>
-                <a
-                  href={flagshipProject.evidence.platform}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
-                >
-                  Evidence ↗
-                </a>
+                <div className="flex justify-end mt-3">
+                  <a
+                    href={flagshipProject.evidence.platform}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-red-600 bg-red-50 border border-red-200 hover:bg-red-100 hover:border-red-300 hover:text-red-700 transition-colors"
+                  >
+                    Evidence ↗
+                  </a>
+                </div>
               </div>
 
               {/* Results */}
@@ -91,14 +93,16 @@ export default function Projects() {
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {flagshipProject.dossier.results}
                 </p>
-                <a
-                  href={flagshipProject.evidence.social}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
-                >
-                  Evidence ↗
-                </a>
+                <div className="flex justify-end mt-3">
+                  <a
+                    href={flagshipProject.evidence.social}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-red-600 bg-red-50 border border-red-200 hover:bg-red-100 hover:border-red-300 hover:text-red-700 transition-colors"
+                  >
+                    Evidence ↗
+                  </a>
+                </div>
               </div>
 
               {/* Ownership */}
