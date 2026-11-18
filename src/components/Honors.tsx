@@ -44,7 +44,6 @@ export default function Honors() {
                     href={item.evidence}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-0.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
                   >
                     Evidence ↗
