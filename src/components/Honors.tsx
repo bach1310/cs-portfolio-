@@ -39,6 +39,17 @@ export default function Honors() {
                 <div className="text-xs font-mono text-slate-500">
                   {item.subtitle}
                 </div>
+                {item.evidence && (
+                  <a
+                    href={item.evidence}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-0.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
+                  >
+                    Evidence ↗
+                  </a>
+                )}
 
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pt-1">
                   {item.description}

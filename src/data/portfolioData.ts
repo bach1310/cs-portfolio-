@@ -7,6 +7,8 @@ export interface HonorAward {
   organization: string;
   description: string;
   tag?: string;
+  /** Path to real evidence image, e.g. "/evidence/sat.jpg". Omit if unavailable. */
+  evidence?: string;
 }
 
 export interface HighlightItem {
@@ -136,14 +138,14 @@ export const portfolioData = {
       tag: "Third Prize School",
     },
     {
-      id: "pickleball-football",
-      year: "2025",
-      scope: "Athletic Honor",
-      title: "Da Nang City U18 Pickleball & School Football Core Squad",
-      subtitle: "Third Place Citywide (Pickleball) · Core Squad Tournament Player (Football)",
-      organization: "Da Nang City Sports Department / Le Quy Don FC",
-      description: "Demonstrated high-pressure athletic teamwork, resilience, and coordination. Co-organized the annual Super League tournament for 15+ teams.",
-      tag: "City Bronze & Core Squad",
+      id: "gpa-grade-11",
+      year: "2025–2026",
+      scope: "Academic Performance",
+      title: "Grade 11 GPA 9.4/10",
+      subtitle: "Le Quy Don High School for the Gifted · Academic Year 2025–2026",
+      organization: "Le Quy Don High School for the Gifted",
+      description: "Sustained a 9.4/10 grade point average across the Grade 11 curriculum at a specialized school for gifted students.",
+      tag: "GPA 9.4/10",
     },
   ] as HonorAward[],
 
