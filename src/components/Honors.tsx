@@ -18,21 +18,21 @@ export default function Honors() {
           </h2>
         </div>
 
-        {/* List of Honors */}
+        {/* List of Honors with subtle lift micro-interactions & WCAG contrast */}
         <div className="space-y-4">
           {honors.map((item: HonorAward) => (
             <div
               key={item.id}
-              className="p-5 sm:p-6 rounded-xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm transition-all flex flex-col md:flex-row md:items-start justify-between gap-4"
+              className="p-5 sm:p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col md:flex-row md:items-start justify-between gap-4 group"
             >
-              <div className="space-y-1.5 max-w-3xl">
+              <div className="space-y-2 max-w-3xl">
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
-                  <span className="text-sky-700 font-semibold">{item.year}</span>
-                  <span>·</span>
+                  <span className="text-sky-700 font-bold bg-sky-50 px-2 py-0.5 rounded border border-sky-200/80">{item.year}</span>
+                  <span className="text-slate-300">·</span>
                   <span className="text-slate-600 font-medium">{item.scope}</span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight group-hover:text-sky-700 transition-colors">
                   {item.title}
                 </h3>
 
@@ -47,7 +47,7 @@ export default function Honors() {
 
               {item.tag && (
                 <div className="flex-shrink-0 self-start md:self-center">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-sky-50 text-sky-800 border border-sky-200 shadow-2xs">
                     <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
                     <span>{item.tag}</span>
                   </span>

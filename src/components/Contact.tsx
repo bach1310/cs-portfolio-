@@ -1,8 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
-import { ArrowUpRight, ArrowUp, Mail, Phone, Globe, Code2 } from "lucide-react";
+import { ArrowUpRight, ArrowUp, Mail, Phone, Globe, Code2, Check, Copy } from "lucide-react";
 
 export default function Contact() {
   const { personalInfo } = portfolioData;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const contactLinks = [
     {
@@ -10,6 +21,7 @@ export default function Contact() {
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
       icon: <Mail className="w-4 h-4 text-sky-600" />,
+      actionable: true,
     },
     {
       label: "Phone",
@@ -48,32 +60,64 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Contact Links Grid */}
+        {/* Contact Links Grid with WCAG 44px min touch target & interactive copy */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {contactLinks.map((link) => (
-            <a
+            <div
               key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              className="p-5 rounded-xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm transition-all group flex flex-col justify-between"
+              className="relative p-5 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group flex flex-col justify-between min-h-[130px]"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="p-2 rounded-lg bg-sky-50 border border-sky-100">
+                <div className="p-2.5 rounded-xl bg-sky-50 border border-sky-100">
                   {link.icon}
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
+
+                {link.actionable ? (
+                  <button
+                    onClick={handleCopyEmail}
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-sky-50 transition-colors flex items-center gap-1 text-xs font-mono"
+                    title="Copy Email"
+                    aria-label="Copy email address"
+                  >
+                    {copied ? (
+                      <span className="flex items-center gap-1 text-emerald-600 font-bold">
+                        <Check className="w-3.5 h-3.5" />
+                        <span>Copied!</span>
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-slate-400 hover:text-slate-600">
+                        <Copy className="w-3.5 h-3.5" />
+                        <span className="text-[11px]">Copy</span>
+                      </span>
+                    )}
+                  </button>
+                ) : (
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${link.label}`}
+                    className="p-1.5 text-slate-400 group-hover:text-sky-600 transition-colors"
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                )}
               </div>
 
               <div>
-                <span className="text-[11px] font-mono uppercase text-slate-500 block mb-0.5 font-medium">
+                <span className="text-[11px] font-mono uppercase text-slate-500 block mb-1 font-bold tracking-wider">
                   {link.label}
                 </span>
-                <span className="text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-sky-700 transition-colors truncate block">
+                <a
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                  className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-sky-700 transition-colors truncate block"
+                >
                   {link.value}
-                </span>
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
 
@@ -85,7 +129,7 @@ export default function Contact() {
 
           <a
             href="#top"
-            className="hover:text-slate-900 transition-colors flex items-center gap-1.5 font-medium"
+            className="hover:text-slate-900 transition-colors flex items-center gap-1.5 font-semibold"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

@@ -22,46 +22,46 @@ export default function Education() {
         </div>
 
         {/* Education Card */}
-        <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white space-y-6 shadow-xs">
+        <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white space-y-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-xl bg-sky-50 border border-sky-200 text-sky-700">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs font-mono text-slate-500 block uppercase font-medium">
+                <span className="text-[11px] font-mono text-slate-500 block uppercase font-bold tracking-wider">
                   Academic Institution
                 </span>
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-xl font-bold text-slate-900 tracking-tight">
                   {education.institution}
                 </h3>
-                <span className="text-xs text-slate-500">{education.location}</span>
+                <span className="text-xs text-slate-500 font-medium">{education.location}</span>
               </div>
             </div>
 
-            <span className="text-xs font-mono text-sky-700 bg-sky-50 px-3 py-1.5 rounded-md border border-sky-200 font-semibold self-start sm:self-center">
+            <span className="text-xs font-mono text-sky-700 bg-sky-50 px-3.5 py-1.5 rounded-lg border border-sky-200 font-bold self-start sm:self-center shadow-2xs">
               {education.standing}
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block font-medium">
+            <div className="p-5 rounded-xl bg-slate-50/80 border border-slate-200 space-y-2">
+              <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block font-bold">
                 Academic Performance
               </span>
-              <div className="text-slate-900 font-bold">{education.gpa}</div>
-              <div className="text-sky-700 font-mono text-xs font-medium">{education.standardized}</div>
+              <div className="text-slate-950 font-bold text-base">{education.gpa}</div>
+              <div className="text-sky-700 font-mono text-xs font-semibold">{education.standardized}</div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-wider block font-medium">
+            <div className="p-5 rounded-xl bg-slate-50/80 border border-slate-200 space-y-2">
+              <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block font-bold">
                 Relevant Coursework
               </span>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {education.coursework.map((course) => (
                   <span
                     key={course}
-                    className="text-xs font-mono px-2.5 py-1 rounded bg-white text-slate-700 border border-slate-200"
+                    className="text-xs font-mono px-2.5 py-1 rounded-md bg-white text-slate-800 border border-slate-200/90 shadow-2xs font-medium"
                   >
                     {course}
                   </span>

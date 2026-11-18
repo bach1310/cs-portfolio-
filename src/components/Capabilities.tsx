@@ -21,19 +21,19 @@ export default function Capabilities() {
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Cards Grid with micro-interactions and evidence links */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {capabilities.map((item: CapabilityItem) => (
             <div
               key={item.index}
-              className="p-6 rounded-xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
-                <span className="text-xs font-mono font-bold text-sky-700 block mb-2">
+                <span className="text-xs font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/80 inline-block mb-3">
                   {item.index}
                 </span>
 
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-700 transition-colors">
                   {item.title}
                 </h3>
 
@@ -41,12 +41,12 @@ export default function Capabilities() {
                   {item.description}
                 </p>
 
-                {/* Skill pills */}
+                {/* Skill pills with subtle hover */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {item.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-mono px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200"
+                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100/80 hover:bg-slate-200/80 text-slate-800 border border-slate-200/80 transition-colors"
                     >
                       {skill}
                     </span>
@@ -56,7 +56,7 @@ export default function Capabilities() {
 
               {/* Validated In Row */}
               <div className="pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-mono">
-                <span className="text-slate-500">Validated in:</span>
+                <span className="text-slate-500 font-medium">Validated in:</span>
                 <div className="flex items-center gap-3">
                   {item.validatedIn.map((val) => (
                     <a
@@ -64,7 +64,7 @@ export default function Capabilities() {
                       href={val.href}
                       target={val.href.startsWith("http") ? "_blank" : "_self"}
                       rel="noopener noreferrer"
-                      className="text-sky-700 hover:text-sky-900 inline-flex items-center gap-1 font-semibold"
+                      className="text-sky-700 hover:text-sky-900 inline-flex items-center gap-1 font-semibold hover:underline"
                     >
                       <span>{val.name}</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
