@@ -106,6 +106,7 @@ export const portfolioData = {
       organization: "College Board",
       description: "Achieved a perfect 800 score on SAT Math. Placed in the top 1% globally among millions of test takers.",
       tag: "Top 1% Worldwide",
+      evidence: "/evidence/sat.pdf",
     },
     {
       id: "physics-city",
@@ -116,6 +117,7 @@ export const portfolioData = {
       organization: "Da Nang Department of Education & Training",
       description: "Rigorous specialized physics competition assessing classical mechanics, thermodynamics, and analytical problem-solving.",
       tag: "Third Prize City",
+      evidence: "/evidence/physics-city.jpg",
     },
     {
       id: "ap-scores",
@@ -126,6 +128,7 @@ export const portfolioData = {
       organization: "College Board",
       description: "Demonstrated advanced proficiency in differential/integral calculus, statistical modeling, inference, and probability distributions.",
       tag: "College-Level Math",
+      evidence: "/evidence/ap-scores.pdf",
     },
     {
       id: "stem-school",
@@ -136,6 +139,7 @@ export const portfolioData = {
       organization: "Le Quy Don High School for the Gifted",
       description: "Engineered and presented an applied scientific/technical project evaluated by faculty and external engineering advisors.",
       tag: "Third Prize School",
+      evidence: "/evidence/stem-school.jpg",
     },
     {
       id: "gpa-grade-11",
@@ -146,6 +150,7 @@ export const portfolioData = {
       organization: "Le Quy Don High School for the Gifted",
       description: "Sustained a 9.4/10 grade point average across the Grade 11 curriculum at a specialized school for gifted students.",
       tag: "GPA 9.4/10",
+      evidence: "/evidence/gpa-grade-11.jpg",
     },
   ] as HonorAward[],
 
