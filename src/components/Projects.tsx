@@ -73,6 +73,14 @@ export default function Projects() {
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {flagshipProject.dossier.product}
                 </p>
+                <a
+                  href={flagshipProject.evidence.platform}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
+                >
+                  Evidence ↗
+                </a>
               </div>
 
               {/* Results */}
@@ -83,6 +91,14 @@ export default function Projects() {
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {flagshipProject.dossier.results}
                 </p>
+                <a
+                  href={flagshipProject.evidence.social}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2.5 text-[11px] font-mono text-slate-500 hover:text-sky-700 underline-offset-2 hover:underline transition-colors"
+                >
+                  Evidence ↗
+                </a>
               </div>
 
               {/* Ownership */}

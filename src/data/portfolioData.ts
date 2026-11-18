@@ -163,6 +163,10 @@ export const portfolioData = {
     status: "Flagship Build · satsolo.com · Live in Production",
     liveUrl: "https://satsolo.com",
     githubUrl: "https://github.com/bach1310",
+    evidence: {
+      platform: "/evidence/satsolo-platform.jpg",
+      social: "/evidence/satsolo-social-video.jpg",
+    },
     dossier: {
       problem:
         "Commercial SAT prep courses in Vietnam typically cost ~3,000,000 VND/month, creating a steep financial barrier for talented students in public high schools.",
