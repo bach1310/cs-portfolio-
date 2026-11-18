@@ -5,28 +5,73 @@ export default function Hero() {
   const { personalInfo, heroHighlights } = portfolioData;
 
   return (
-    <section id="top" className="relative pt-16 pb-20 md:pt-24 md:pb-28 border-b border-slate-200">
+    <section id="top" className="relative pt-12 pb-16 md:pt-20 md:pb-24 border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Left Column: Title, Intro & Actions */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Main Content Column: Intro, Relocated 2x2 Highlights & Actions */}
+          <div className="lg:col-span-8 space-y-6 sm:space-y-7">
+            
+            {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-xs font-mono tracking-wider text-slate-600 uppercase border border-slate-200/80">
               <MapPin className="w-3.5 h-3.5 text-sky-600" />
               <span>{personalInfo.eyebrow}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-950 leading-tight">
-              {personalInfo.fullName}
-            </h1>
+            {/* Name & Academic Direction */}
+            <div className="space-y-2">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-950 leading-tight">
+                {personalInfo.fullName}
+              </h1>
 
-            <div className="text-base sm:text-lg font-mono text-sky-700 font-semibold tracking-tight">
-              {personalInfo.title}
+              <div className="text-base sm:text-lg font-mono text-sky-700 font-semibold tracking-tight">
+                {personalInfo.title}
+              </div>
             </div>
 
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-xl">
+            {/* Introduction / Bio */}
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
               {personalInfo.bio}
             </p>
+
+            {/* PORTFOLIO HIGHLIGHTS: Integrated 2x2 Grid directly below Intro */}
+            <div className="space-y-3 pt-1">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-slate-500 font-bold">
+                  Portfolio Highlights & Key Benchmarks
+                </span>
+                <span className="text-xs font-mono text-sky-700 font-semibold hidden sm:inline">
+                  4 Verified Milestones
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                {heroHighlights.map((item) => (
+                  <a
+                    key={item.index}
+                    href={item.href}
+                    className="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-white hover:border-sky-400 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group flex flex-col justify-between min-h-[120px]"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2.5">
+                        <span className="text-[11px] font-mono font-bold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-md border border-sky-200/80">
+                          {item.index} {item.category && `· ${item.category}`}
+                        </span>
+                        <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                      </div>
+
+                      <div className="text-sm sm:text-base font-bold text-slate-950 group-hover:text-sky-700 transition-colors tracking-tight leading-snug">
+                        {item.title}
+                      </div>
+                    </div>
+
+                    <div className="mt-3.5 pt-2.5 border-t border-slate-100 text-xs font-mono text-slate-600 leading-normal">
+                      {item.detail}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
 
             {/* Quick Action Links with WCAG touch targets & hover states */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -66,12 +111,11 @@ export default function Hero() {
                 <ArrowUpRight className="w-3.5 h-3.5 text-sky-600" />
               </a>
             </div>
+
           </div>
 
-          {/* Right Column: STUDENT PROFILE WITH PHOTO + HIGHLIGHTS */}
-          <div className="lg:col-span-5 space-y-5">
-            
-            {/* Student Profile Card (Matching friend's exact structure with polish) */}
+          {/* Right Column: STUDENT PROFILE CARD (Clean, balanced, no duplicate highlights) */}
+          <div className="lg:col-span-4 space-y-5">
             <div className="rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200">
               
               {/* Photo with clean contain and seamless white background */}
@@ -104,38 +148,8 @@ export default function Hero() {
               </div>
 
             </div>
-
-            {/* Portfolio Highlights Grid with micro-interactions */}
-            <div className="space-y-2">
-              <div className="text-[11px] font-mono uppercase tracking-widest text-slate-500 px-1 font-bold">
-                Portfolio Highlights
-              </div>
-
-              {heroHighlights.map((item) => (
-                <a
-                  key={item.index}
-                  href={item.href}
-                  className="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50/80 hover:border-sky-400 hover:shadow-xs transition-all duration-200 group"
-                >
-                  <div className="flex items-center gap-3.5">
-                    <span className="text-xs font-mono text-sky-700 font-bold bg-sky-50 px-2 py-0.5 rounded border border-sky-200">
-                      {item.index}
-                    </span>
-                    <div>
-                      <div className="text-xs font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
-                        {item.title}
-                      </div>
-                      <div className="text-[11px] text-slate-500 font-mono mt-0.5">
-                        {item.detail}
-                      </div>
-                    </div>
-                  </div>
-                  <ArrowDown className="w-4 h-4 text-slate-400 group-hover:text-sky-600 -rotate-45 group-hover:rotate-0 transition-transform duration-200 flex-shrink-0" />
-                </a>
-              ))}
-            </div>
-
           </div>
+
         </div>
       </div>
     </section>

@@ -11,6 +11,8 @@ export interface HonorAward {
 
 export interface HighlightItem {
   index: string;
+  category?: string;
+  metric?: string;
   title: string;
   detail: string;
   href: string;
@@ -59,26 +61,34 @@ export const portfolioData = {
   heroHighlights: [
     {
       index: "01",
+      category: "Academic Standard",
+      metric: "1540",
       title: "SAT 1540 (Math 800/800 Perfect)",
-      detail: "Top 1% Worldwide · EBRW 740, Math 800",
+      detail: "Top 1% Worldwide · EBRW 740 · Math 800",
       href: "#honors",
     },
     {
       index: "02",
+      category: "Production System",
+      metric: "800+",
       title: "SAT Solo (satsolo.com) Lead Dev",
       detail: "800+ registered students across 10 cities",
       href: "#work",
     },
     {
       index: "03",
+      category: "Educational Reach",
+      metric: "1M+",
       title: "1M+ Social Media Views",
       detail: "Free SAT educational content ecosystem",
       href: "#work",
     },
     {
       index: "04",
+      category: "Technical Leadership",
+      metric: "15",
       title: "Head of Tech · Young Creation Club",
-      detail: "15 engineers led · 3 club projects / sem",
+      detail: "15 engineers led · 3 club projects / semester",
       href: "#leadership",
     },
   ] as HighlightItem[],
