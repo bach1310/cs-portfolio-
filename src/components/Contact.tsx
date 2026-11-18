@@ -50,7 +50,7 @@ export default function Contact() {
         {/* Header */}
         <div className="mb-12">
           <div className="text-xs font-mono font-semibold tracking-widest text-sky-600 uppercase mb-2">
-            06 / Contact & Collaboration
+            05 / Contact & Collaboration
           </div>
           <h2 className="text-2xl sm:text-4xl font-bold text-slate-950 tracking-tight max-w-2xl">
             Let&apos;s discuss computer science, AI research, or undergraduate admissions.

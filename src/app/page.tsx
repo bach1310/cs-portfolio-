@@ -4,7 +4,6 @@ import Honors from "@/components/Honors";
 import Projects from "@/components/Projects";
 import Leadership from "@/components/Leadership";
 import Capabilities from "@/components/Capabilities";
-import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
         <Projects />
         <Leadership />
         <Capabilities />
-        <Education />
       </main>
       <Contact />
     </div>
